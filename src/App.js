@@ -59,7 +59,7 @@ return (
   <div className="App">
       <Header/>
       <div className='row'>
-      <Main onAdd={onAdd} onRemove={onRemove}  products={products}></Main>
+      <Main onAdd={onAdd} onRemove={onRemove}  products={products}/>
       <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>
       </div>
   </div>
