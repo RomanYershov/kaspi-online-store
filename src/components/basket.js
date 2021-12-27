@@ -38,7 +38,7 @@ export default function Basket(props){
         </div>
         {
          cartItems.length > 0 && 
-        <button className='btn btn-success' onClick={() => onPay()}>Оплатить</button>
+        <button className='btn btn-success' onClick={() => onPay(true)}>Оплатить</button>
         }
           
         </aside>

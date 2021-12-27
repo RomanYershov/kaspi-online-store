@@ -52,8 +52,9 @@ const onRemove = (product) => {
   }
 };
 
-const onPay = () => {
-   setOrderState(true)
+const onPay = (isPay) => {
+   setOrderState(isPay)
+   {!isPay && setCartItems([])}
 }
 
 
@@ -65,7 +66,7 @@ return (
       <div className='row'>
       <Main onAdd={onAdd} onRemove={onRemove}  products={products}/>
       {!isCanPay && <Basket onPay={onPay} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>}
-      {isCanPay && <PayForm/>}
+      {isCanPay && <PayForm isCanPay={isCanPay} onPay={onPay}/>}
       </div>
   </div>
 );
