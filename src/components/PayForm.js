@@ -30,11 +30,11 @@ const handleSubmit = (event) => {
            <form onSubmit={handleSubmit}>
            <div style={{paddingBottom: '15px'}}>
                 Адрес:
-                <input value={address} onChange={(e) => setAddress(e.target.value)} title="test"></input>
+                <input value={address} onChange={(e) => setAddress(e.target.value)}></input>
             </div>
             <div>
                 Карта:
-                <input value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} title="test"></input>
+                <input value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}></input>
             </div>
             <div>
                 <button type="submit">Оплатить</button>
