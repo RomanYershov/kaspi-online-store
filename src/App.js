@@ -16,6 +16,7 @@ const [ products, setData ] = useState([])
 const [ cartItems, setCartItems ] = useState([])
 const [ isCanPay, setOrderState ] = useState()
 
+
  useEffect(() => {
   fetch('https://localhost:5001/api/Products/GetProducts')
   .then(response => response.json())
@@ -62,7 +63,7 @@ const onPay = (isPay) => {
 return (
   
   <div className="App">
-      <Header/>
+      <Header isCanPay={isCanPay} setOrderState={setOrderState}/>
       <div className='row'>
       <Main onAdd={onAdd} onRemove={onRemove}  products={products}/>
       {!isCanPay && <Basket onPay={onPay} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>}
