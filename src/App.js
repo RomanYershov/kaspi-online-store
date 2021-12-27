@@ -5,6 +5,7 @@ import Main from './components/main';
 import Basket from './components/basket';
 import data from  './components/data'
 import { useEffect, useState } from 'react';
+import PayForm from './components/PayForm';
 
 
  function App (props){
@@ -13,6 +14,7 @@ import { useEffect, useState } from 'react';
 
 const [ products, setData ] = useState([])
 const [ cartItems, setCartItems ] = useState([])
+const [ isCanPay, setOrderState ] = useState()
 
  useEffect(() => {
   fetch('https://localhost:5001/api/Products/GetProducts')
@@ -50,7 +52,9 @@ const onRemove = (product) => {
   }
 };
 
-
+const onPay = () => {
+   setOrderState(true)
+}
 
 
 
@@ -60,7 +64,8 @@ return (
       <Header/>
       <div className='row'>
       <Main onAdd={onAdd} onRemove={onRemove}  products={products}/>
-      <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>
+      {!isCanPay && <Basket onPay={onPay} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>}
+      {isCanPay && <PayForm/>}
       </div>
   </div>
 );
