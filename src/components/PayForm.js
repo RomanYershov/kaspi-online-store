@@ -25,15 +25,22 @@ const handleSubmit = (event) => {
     alert('Заказ оплачен')
   }
 
+   const styles = {
+       paddingBottom :{
+           paddingBottom: '15px'
+       }
+   }
+
+
     return(
         <div className="block col-1">
             <h2>Форма оплаты</h2>
            <form onSubmit={handleSubmit}>
-           <div style={{paddingBottom: '15px'}}>
+           <div style={styles.paddingBottom}>
                 Адрес:
                 <input value={address} onChange={(e) => setAddress(e.target.value)}></input>
             </div>
-            <div>
+            <div style={styles.paddingBottom}>
                 Карта:
                 <input value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}></input>
             </div>
