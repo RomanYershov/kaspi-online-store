@@ -53,9 +53,9 @@ const onRemove = (product) => {
   }
 };
 
-const onPay = (isPay) => {
-   setOrderState(isPay)
-   {!isPay && setCartItems([])}
+const onPay = (isPaid) => {
+   setOrderState(isPaid)
+   {!isPaid && setCartItems([])}
 }
 
 

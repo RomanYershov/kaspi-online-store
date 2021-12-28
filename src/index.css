@@ -52,11 +52,11 @@ img.small {
 }
 button {
   font-size: 0.8rem;
-  padding: 0.2rem;
+  padding: 0.1rem;
   margin: 0.1rem;
-  border-radius: 0.5rem;
+  border-radius: .3rem;
   border: 0.1rem #404040 solid;
-  background-color: #f0c040;
+  background-color: #e4dabe;
   width: 100%;
   cursor: pointer;
 }

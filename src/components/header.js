@@ -1,11 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { Orders } from './orders'
 
 
 export default function Header(props){
 
     const { isCanPay } = props
     const [ orders, setData ] = useState([])
+    const [ isClickOrder, orderPageTrigger ] = useState(false)
     
 
     useEffect(() => {
@@ -27,11 +29,12 @@ export default function Header(props){
         }
     }
     
+     
+
     return(
         <div className='block col-1'>
-            <h2>Header</h2>
-            <strong>У вас {orders.length} заказов</strong>
-          
+            <a href='#/orders' onClick={() => {orderPageTrigger(!isClickOrder)}}><strong>Управление заказами ({orders.length})</strong></a>
+            {isClickOrder &&  <Orders/>}
         </div>
     )
 }

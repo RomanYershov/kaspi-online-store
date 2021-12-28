@@ -4,6 +4,7 @@ import React, { useState } from "react";
 export default function PayForm(props){
 
     const {isCanPay, onPay} = props
+    // const [isCanPay, onPay] = useState(false)
     const [address, setAddress] = useState("")
     const [cardNumber, setCardNumber] = useState("")
 
