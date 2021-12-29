@@ -3,38 +3,28 @@ import { useEffect, useState } from 'react'
 import { Orders } from './orders'
 
 
-export default function Header(props){
+export default function Header(props) {
 
     const { isCanPay } = props
-    const [ orders, setData ] = useState([])
-    const [ isClickOrder, orderPageTrigger ] = useState(false)
-    
+    const [orders, setData] = useState([])
+    const [isClickOrder, orderPageTrigger] = useState(false)
+
 
     useEffect(() => {
         fetch('https://localhost:5001/api/order/GetAll')
-        .then(response => response.json())
-        .then(data => {
-            setData(data)
-        })
-       }, [])
-    
-    const useOrdersUdate = () => {
-        if(isCanPay){
-            console.log(isCanPay)
-            fetch('https://localhost:5001/api/order/GetAll')
-                .then(response => response.json())
-                .then(data => {
-                    setData(data)
-                })
-        }
-    }
-    
-     
+            .then(response => response.json())
+            .then(data => {
+                setData(data)
+            })
+    }, [])
 
-    return(
+   
+
+
+    return (
         <div className='block col-1'>
-            <a href='#/orders' onClick={() => {orderPageTrigger(!isClickOrder)}}><strong>Управление заказами ({orders.length})</strong></a>
-            {isClickOrder &&  <Orders/>}
+            <a href='#/orders' onClick={() => { orderPageTrigger(!isClickOrder) }}><strong>Управление заказами ({orders.length})</strong></a>
+            {isClickOrder && <Orders />}
         </div>
     )
 }
