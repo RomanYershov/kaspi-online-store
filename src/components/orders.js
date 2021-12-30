@@ -47,10 +47,10 @@ export class Orders extends Component {
 
     render() {
         return (
-            <div className="block">
+            <div>
                 <h3>Orders page</h3>
-                <Table variant="striped">
-                    <thead style={{ color: '#f04040' }}>
+                <table className="table">
+                    <thead className="thead-dark">
                         <tr>
                             <th>Дата заказа</th>
                             <th>Адрес</th>
@@ -69,7 +69,7 @@ export class Orders extends Component {
                             </tr>
                         ))}
                     </tbody>
-                </Table>
+                </table>
             </div>
 
         )

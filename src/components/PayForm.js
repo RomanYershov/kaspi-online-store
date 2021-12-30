@@ -4,7 +4,7 @@ import React, { useState } from "react";
 export default function PayForm(props) {
 
     const { isCanPay, onPay, cartItems, onUpdateOrdersCount } = props
-    
+
     const [address, setAddress] = useState("")
     const [cardNumber, setCardNumber] = useState("")
 
@@ -20,14 +20,21 @@ export default function PayForm(props) {
 
 
         fetch('https://localhost:5001/api/Order/OrderInsert', requestOptions)
+            .then(response => {
+                if (response.ok) {
+                    onUpdateOrdersCount(1)
+                    onPay(false)
+                    alert('Заказ оплачен')
+                }
+                else{
+                    alert('Необходимо заполнить форму оплаты')
+                }
+            })
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         orderInsert()
-        onUpdateOrdersCount(1)
-        onPay(false)
-        alert('Заказ оплачен')
     }
 
     const styles = {
