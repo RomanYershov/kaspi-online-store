@@ -5,7 +5,7 @@ import { Orders } from './orders'
 
 export default function Header(props) {
 
-    const { isCanPay } = props
+    const { isCanPay, ordersCount} = props
     const [orders, setData] = useState([])
     const [isClickOrder, orderPageTrigger] = useState(false)
 
@@ -23,7 +23,7 @@ export default function Header(props) {
 
     return (
         <div className='block col-1'>
-            <a href='#/orders' onClick={() => { orderPageTrigger(!isClickOrder) }}><strong>Управление заказами ({orders.length})</strong></a>
+            <a href='#/orders' onClick={() => { orderPageTrigger(!isClickOrder) }}><strong>Управление заказами ({ordersCount + orders.length})</strong></a>
             {isClickOrder && <Orders />}
         </div>
     )

@@ -11,6 +11,7 @@ function App(props) {
   const [products, setData] = useState([])
   const [cartItems, setCartItems] = useState([])
   const [isCanPay, setOrderState] = useState()
+  const [ordersCount, setOrdersCount] = useState(0)
 
 
   useEffect(() => {
@@ -49,6 +50,11 @@ function App(props) {
     }
   };
 
+  const onOrdersInsert = (orderNum) =>{
+    setOrdersCount(ordersCount + orderNum)
+    console.log(ordersCount)
+  }
+
   const onPay = (isPaid) => {
     setOrderState(isPaid)
     { !isPaid && setCartItems([]) }
@@ -58,11 +64,11 @@ function App(props) {
 
   return (
     <div className="App">
-      <Header isCanPay={isCanPay} setOrderState={setOrderState} />
+      <Header isCanPay={isCanPay}  ordersCount={ordersCount}  setOrderState={setOrderState} />
       <div className='row'>
         <Main onAdd={onAdd} onRemove={onRemove} products={products} />
         {!isCanPay && <Basket onPay={onPay} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />}
-        {isCanPay && <PayForm cartItems={cartItems} isCanPay={isCanPay} onPay={onPay} />}
+        {isCanPay && <PayForm onUpdateOrdersCount={onOrdersInsert} cartItems={cartItems} isCanPay={isCanPay} onPay={onPay} />}
       </div>
     </div>
   );

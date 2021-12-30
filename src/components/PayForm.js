@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 export default function PayForm(props) {
 
-    const { isCanPay, onPay, cartItems } = props
-    // const [isCanPay, onPay] = useState(false)
+    const { isCanPay, onPay, cartItems, onUpdateOrdersCount } = props
+    
     const [address, setAddress] = useState("")
     const [cardNumber, setCardNumber] = useState("")
 
@@ -25,6 +25,7 @@ export default function PayForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         orderInsert()
+        onUpdateOrdersCount(1)
         onPay(false)
         alert('Заказ оплачен')
     }
